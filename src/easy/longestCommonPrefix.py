@@ -3,16 +3,16 @@ class Solution:
         if not list_str:
             return ""
 
-        # sort O(nlog(n))
-        shortest_str = sorted(list_str, key=lambda x: len(x))[0]
+        # # sort O(nlog(n))
+        # shortest_str = sorted(list_str, key=lambda x: len(x))[0]
 
         # O(n*shortest_length)
-        for i, string in enumerate(shortest_str):
+        for i, char in enumerate(list_str[0]):
             for other in list_str:
-                if shortest_str[i] != other[i]:
-                    return shortest_str[:i]
+                if i == len(other) or char != other[i]:
+                    return list_str[0][:i]
 
-        return shortest_str
+        return list_str[0]
 
 
 strs = ['123', '12']
