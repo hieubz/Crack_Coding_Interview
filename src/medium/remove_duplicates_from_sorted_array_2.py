@@ -4,18 +4,19 @@
 # modifying the input array in-place with O(1) extra memory
 
 # notice that the array is sorted
+# instead of using a 1-window, we use 2-window
 
 class Solution:
     def removeDuplicates(self, nums):
-        x = 1
-        for i in range(len(nums) - 1):
-            if nums[i] != nums[i + 1]:
-                nums[x] = nums[i + 1]
-                x += 1
+        i = 0
+        for number in nums:
+            if i < 2 or number > nums[i-2]:
+                nums[i] = number
+                i += 1
 
-        return x
+        return i
 
 
 a = Solution()
-res = a.removeDuplicates([1, 1, 1, 2, 3])
+res = a.removeDuplicates([0, 0, 1, 1, 1, 1, 2, 2, 3, 3])
 print(res)
