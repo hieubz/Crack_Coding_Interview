@@ -6,7 +6,9 @@ class Solution:
 
         rev = 0
         while x > rev:
+            # reverse gradually
             rev = rev * 10 + x % 10
+            # remove character gradually from the number
             x = x // 10
 
         return x == rev or x == rev // 10
