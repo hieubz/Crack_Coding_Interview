@@ -5,6 +5,8 @@ class Solution:
     def threeSum(self, nums):
         if not nums or len(nums) < 3:
             return []
+
+        # O log(n)
         nums = sorted(nums)
 
         if nums[0] > 0:
@@ -12,6 +14,8 @@ class Solution:
 
         length = len(nums)
         result = []
+
+        # O(n2)
         for i, number in enumerate(nums):
             # first element or ...
             if i == 0 or (i > 0 and number != nums[i - 1]):
@@ -43,6 +47,7 @@ class Solution:
         return result
 
     def twoSum(self, nums):
+        """find pairs of number which have sum equal to 0"""
         result = []
         dict_int = {}
         if not nums or len(nums) < 2:
