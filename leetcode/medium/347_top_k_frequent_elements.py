@@ -16,13 +16,9 @@ class Solution:
             else:
                 dicts[num] += 1
 
-        arr = [0] * len(dicts)
-        if len(dicts) == 1:
-            return dicts.keys()
-        for num, counts in dicts.items():
-            arr[num] = counts - 1
+        res = sorted(dicts.items(), key=lambda x: x[1], reverse=True)[:k]
 
-        return arr[-k:]
+        return [ele[0] for ele in res]
     #
     # # Quick select is an algorithm typically used to solve the problems
     # # "find k th something": k th smallest, k th largest, k th most frequent
@@ -35,5 +31,5 @@ class Solution:
 
 
 s = Solution()
-arr = [1, 2]
-s.topKFrequent_2(arr, 2)
+arr = [1, 2, 1, 3, 2]
+s.topKFrequent(arr, 2)
