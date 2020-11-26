@@ -33,11 +33,36 @@ class Solution:
 
         return nums1
 
+    def merge_2(self, arr1, arr2):
+        i = len(arr1) - 1
+        j = len(arr2) - 1
+        k = i + j + 1
+        arr1 += [0] * (j + 1)
+
+        while i >= 0 and j >= 0:
+            if arr1[i] > arr2[j]:
+                arr1[k] = arr1[i]
+                k -= 1
+                i -= 1
+            else:
+                arr1[k] = arr2[j]
+                k -= 1
+                j -= 1
+
+        while j >= 0:
+            arr1[k] = arr2[j]
+            k -= 1
+            j -= 1
+
+        return arr1
+
+
+
 
 if __name__ == '__main__':
     s = Solution()
-    a = [1, 2, 3, 0, 0, 0]
+    a = [1, 2, 3, 9]
 
     b = [2, 5, 6]
-    merged_arr = s.merge(a, 3, b, 3)
+    merged_arr = s.merge_2(a, b)
     print(merged_arr)
