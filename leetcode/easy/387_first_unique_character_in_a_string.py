@@ -3,19 +3,10 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
         dicts = {}
-        for charac in s:
-            if charac not in dicts:
-                dicts[charac] = 1
-            else:
-                dicts[charac] += 1
+        for c in s:
+            dicts[c] = dicts.get(c, 0) + 1
 
-        for i, c in enumerate(s):
-            if dicts[c] == 1:
+        for i, ch in enumerate(s):
+            if dicts[ch] == 1:
                 return i
-
         return -1
-
-s = Solution()
-string = "leetcode"
-res = s.firstUniqChar(string)
-print(res)
