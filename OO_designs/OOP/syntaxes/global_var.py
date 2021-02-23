@@ -2,8 +2,6 @@
 when we create a variable inside a function, it is local by default
 when we define a variable outside of a function, it is global by default
 we use global keyword to read and write a global var inside a function
-
-
 """
 
 x = "awesome"
