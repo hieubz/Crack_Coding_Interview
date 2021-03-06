@@ -3,6 +3,8 @@ Open-closed Principle
 
 classes, modules, functions should be open for extension, not modification
 
+But following OCP usually introduces new levels of abstraction, which adds complexity to our code
+=> concentrate on those areas that are most likely to change in your designs and apply it there.
 """
 
 
@@ -111,23 +113,6 @@ class SuperVIPDiscount(VIPDiscount):
         return super().get_discount() * 2
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class DiamondDiscount(SuperVIPDiscount):
+    def get_discount(self):
+        return super().get_discount() * 1.2

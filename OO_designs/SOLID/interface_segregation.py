@@ -14,9 +14,25 @@ class IShape:
         raise NotImplementedError
 
 
+class IShape2:
+    def draw_square(self):
+        raise NotImplementedError
+
+    def draw_rectangle(self):
+        raise NotImplementedError
+
+
 """
 if you use this interface, subclasses must define all methods 
 """
+
+
+class Square(IShape2):
+    def draw_square(self):
+        return "square"
+
+    def draw_rectangle(self):
+        return "rectangle"
 
 
 class Circle(IShape):
@@ -34,5 +50,3 @@ class Circle(IShape):
 if we add another method to the IShape interface => the classes must implement the new method or error will
 be thrown
 """
-
-

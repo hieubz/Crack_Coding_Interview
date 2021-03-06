@@ -1,7 +1,8 @@
 class Solution:
     def findTheDifference(self, s, t):
-        xor_s = 0
-        for c in s + t:
-            xor_s ^= ord(c)
+        result = 0
+        for character in s + t:
+            result ^= ord(character)
 
-        return chr(xor_s)
+        return chr(result)
+

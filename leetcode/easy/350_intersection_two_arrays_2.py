@@ -13,7 +13,7 @@
 
 # 3. If only nums2 cannot fit in memory, put all elements of nums1 into a Hashmap, I would read chunks of array
 # that fit into the memory, and record the intersections
-# If both array cannot fir in memory => use distributed system, maybe MapReduce to solve.
+# If both arrays cannot fit in memory => use distributed system, maybe MapReduce to solve.
 
 
 from collections import Counter

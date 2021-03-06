@@ -6,9 +6,9 @@ it doesn't require creation of a class instance
  - static method do not use anything related to its class or instance but only deals with parameters
 2. class method: class is passed to the function as the first parameter - cls
  - use when you need to have a method which returns an instance - factory method
+ or when we wanna call many functions with class name rather than object (and need to create objects)
  - flexible in creating instances in inheritance
 """
-from datetime import date
 
 
 class Person:
@@ -22,7 +22,7 @@ class Person:
     @classmethod
     def print_age(cls):
         """
-        is used in factory design where we wnat to call many functions
+        is used in factory design where we want to call many functions
         with class name rather than object
         - gives us ability to define factory methods. We can produce instances
         by any ways we like
@@ -41,7 +41,7 @@ class Student:
         self.age = age
 
     def something(self):
-        return
+        print(self.name, self.age)
 
     @classmethod
     def init_from_string(cls, info):
@@ -70,4 +70,29 @@ class Student:
         return name
 
 
-print(Student.fuck("hieu _ 20"))
+class Teacher:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show_info(self):
+        print(self.name, self.age)
+
+    @classmethod
+    def init_from_str(cls, string):
+        name, age = string.split('_')
+        return cls(name, age)
+
+    @staticmethod
+    def go_away(location):
+        print(f"go to {location}")
+
+
+s = Student.init_from_string("hieu _ 20")
+s.something()
+
+Person.show_notification("hello")
+# can not access instance methods by anything except its instance
+# not by class name
+t = Teacher.init_from_str("Tony_25")
+t.show_info()

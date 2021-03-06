@@ -33,7 +33,8 @@ class Solution:
 
 
 # Answers
-# 1.
+# 1. In general, BFS will use more memory than DFS. However BFS can take advantage of the locality of files
+# inside directories, and therefore will probably be faster
 # 2. in this case, not realistic to match the whole string of the content. So we use file size
 # map all the files according to size. Files with different sizes are guaranteed to be different
 # Then we hash a small part of the files with equal sizes (using MD5 for example). Only if the MD5 is
