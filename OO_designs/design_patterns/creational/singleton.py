@@ -20,6 +20,8 @@ class Singleton:
         else:
             return Singleton.__instance
 
+        return Singleton.__instance
+
     @classmethod
     def get_instance_thread_safe(cls):
         if not cls.__instance:

@@ -11,6 +11,10 @@ class Solution:
 
         return max_length
 
+    def lengof(self, s):
+        start = max_length = 0
+        used_char = {}
+
 
 if __name__ == '__main__':
     s = "tmmzuxt"

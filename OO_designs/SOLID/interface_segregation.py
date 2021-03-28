@@ -1,5 +1,6 @@
 """
 deal with disadvantages of implementing big interface
+and when we add another method to the IShape interface, like draw_triangle()
 """
 
 
@@ -14,20 +15,12 @@ class IShape:
         raise NotImplementedError
 
 
-class IShape2:
-    def draw_square(self):
-        raise NotImplementedError
-
-    def draw_rectangle(self):
-        raise NotImplementedError
-
-
 """
 if you use this interface, subclasses must define all methods 
 """
 
 
-class Square(IShape2):
+class Square(IShape):
     def draw_square(self):
         return "square"
 
@@ -49,4 +42,20 @@ class Circle(IShape):
 """
 if we add another method to the IShape interface => the classes must implement the new method or error will
 be thrown
+Solution:
 """
+
+
+class Shape:
+    def draw(self):
+        raise NotImplemented
+
+
+class Circle1(Shape):
+    def draw(self):
+        print("draw circle")
+
+
+class Square1(Shape):
+    def draw(self):
+        print("draw square")

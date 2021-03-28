@@ -105,14 +105,14 @@ class Discount:
 
 class VIPDiscount(Discount):
     def get_discount(self):
-        return super().get_discount() * 2
-
-
-class SuperVIPDiscount(VIPDiscount):
-    def get_discount(self):
-        return super().get_discount() * 2
-
-
-class DiamondDiscount(SuperVIPDiscount):
-    def get_discount(self):
         return super().get_discount() * 1.2
+
+
+class SuperVIPDiscount(Discount):
+    def get_discount(self):
+        return super().get_discount() * 1.5
+
+
+class DiamondDiscount(Discount):
+    def get_discount(self):
+        return super().get_discount() * 2

@@ -6,11 +6,11 @@ create a generator: create a normal function with a yield statement.
 """
 
 
-def rev_str(my_str):
+def rev_str_2(my_str):
     length = len(my_str)
-    for i in range(length - 1, -1, -1):
+    for i in range(length):
         yield my_str[i]
 
 
-for c in rev_str("fuck"):
-    print(c)
+for char in rev_str_2("fuck"):
+    print(char)

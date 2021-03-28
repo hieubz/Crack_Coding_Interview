@@ -8,15 +8,6 @@ INTERFACE: create interface when we provide additional behaviors and they are op
 from abc import ABC, abstractmethod
 
 
-class User2(ABC):
-    def __init__(self):
-        pass
-
-    @abstractmethod
-    def process(self):
-        pass
-
-
 class User(ABC):
     def __init__(self, name, num_months):
         self.name = name

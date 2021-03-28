@@ -6,38 +6,41 @@ high level modules should not depend upon low level modules. Both should depend 
 
 class IFood:
     def bake(self):
-        raise NotImplementedError
+        raise NotImplemented
 
     def eat(self):
-        raise NotImplementedError
+        raise NotImplemented
+
+
+class Pizza(IFood):
+    def bake(self):
+        print("pizza was baked")
+
+    def eat(self):
+        print("pizza was ate")
 
 
 class Bread(IFood):
     def bake(self):
-        print("baked")
+        print("bread was baked")
 
     def eat(self):
-        print("eaten")
-
-
-class Pastry(IFood):
-    def bake(self):
-        print("baked")
-
-    def eat(self):
-        print("eaten")
+        print("bread was ate")
 
 
 class Production:
-    """
-    food now is any concrete implementation of IFood
-    this is also dependency injection when it is a parameter not hardcoded
-    """
-    def __init__(self, food):
+    def __init__(self, food: IFood):
         self.food = food
 
     def produce(self):
         self.food.bake()
 
-    def comsume(self):
+    def consume(self):
         self.food.eat()
+
+
+if __name__ == '__main__':
+    pizza = Pizza()
+    p = Production(pizza)
+    p.produce()
+    p.consume()
